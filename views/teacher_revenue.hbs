@@ -1,0 +1,54 @@
+ <h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Doanh thu giáo viên</h1>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Thông tin</div>
+
+      <div class="list-group list-group-flush">
+        <th style="width: 30%;">Mã giáo viên: </th><td >{{ID}}</td>
+        <br>     
+        <th style="width: 30%;">Họ và tên: </th><td >{{GV}}</td>     
+      </div>
+
+    </div>
+    <!-- /#sidebar-wrapper -->
+  
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      
+      <div class="container-fluid">
+        <!--Doanh thu giáo viên-->
+        <div  class="container">
+          
+          <table class="table table-hover table_info_cart">
+              <thead>
+                <tr class="row_title">
+                  <th style="width: 30%;">Tên khóa học</th>
+                  <th style="width: 20%;" class="table_header">Doanh Thu</th>
+                  
+                </tr>
+              </thead>
+              <tbody class="body_table">
+                {{#each OneTeacher}}
+                  <tr>
+                    <td >{{CNAME}}</td>
+                    <td ><span id="{{id}}">{{REVENUE}}</span> <span>VNĐ</span></td>
+                    
+                  </tr>
+                {{/each}}
+              </tbody>
+          </table>
+          <hr />
+          <th style="width: 30%;">Tổng doanh thu: </th><td >{{sumRev}}</td> <span>VNĐ</span>
+          
+          <!--show chart with year -->
+         
+          
+         
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>

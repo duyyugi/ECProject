@@ -1,0 +1,201 @@
+.name_teacher {
+    color: #088A08;
+}
+
+.des_teacher {
+    size: 10px;
+}
+
+.list_course {
+    width: 100px;
+    height: 100px;
+}
+
+.thumbnail {
+    width: 50px;
+    height: 40px;
+}
+
+.deletebutton {
+    border-radius: 50px;
+    background-color: green;
+    opacity: 0.1;
+    width: 30px;
+    height: 30px;
+}
+.img_banner{
+    height: 400px;
+    width: 1100px;
+}
+
+.button_submit{
+    height: 37px;
+}
+.ion_search{
+    padding-left: 7px;
+}
+.font_img{
+    width: 250px;
+    height: 250px;
+}
+.font_imgcategory{
+  height: 100%;
+}
+.table_info_cart{
+    background: white;
+    margin-bottom: 0;
+    margin-top: 1%;
+    margin-bottom:4% ;
+    width: 100%;
+  }
+
+  .table_header {
+    border-left: 1px solid #c8c7cc;
+    border-right: 1px solid #c8c7cc;
+  }
+  tr:hover {
+      cursor: pointer;
+  }
+  .vat{
+    background-color: #E4E4E5;
+    border: solid 1px;
+    border-color: #8E8E93;
+    border-radius: 5px;
+    padding: 1% 7%;
+  }
+  .txt_5{
+    color: #DD3341;
+  }
+  .title{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 2%;
+  }
+  .row_title{
+    background-color: #c3e6cb;
+  }
+  .body_table{
+    background-color: #f8f9fa;
+  }
+  .title_fanpage{
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+  }
+  /* .text-center{
+    padding: 20px 0;
+  } */
+  .style_vnpay:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #00a859;
+  }
+  .icon_payment{
+    padding-top: 10px;
+    padding-right: 10px;
+    color: #00a859;
+  }
+  .img_payment{
+    width: 100px;
+    margin-left: 25px;
+  }
+  .icon_paypal{
+    padding-top: 22px;
+    padding-right: 10px;
+    font-size:24px;
+    color: #00a859;
+  }
+  .content_payment{
+    padding-bottom: 50px;
+    margin-left: 30%;
+  }
+  .gopaypal{
+    background-color: #fff;
+    border: none;
+    color: #007bff;
+  }
+  .gopaypal:hover{
+    color: #00a859;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-top: 2%;
+  }
+  .gopaypal:focus{
+    outline: none;
+  }
+  .background_col {
+    display: flex;
+    justify-content: center;
+  }
+  .background_message{
+    width: 1000px;
+    height: 500px;
+    background-color: #fff;
+    margin: 50px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .btn_goHome{
+    border: none;
+    height: 35px;
+    width: 120px;
+    margin: 0px 20px;
+    color: #2980B9;
+    border-radius: 5px;
+    background-color: #D5DBDB;
+    text-align: center;
+    padding-top: 5px;
+  }
+  .btn_startuse{
+    border: none;
+    background-color: #F39C12;
+    border-radius: 5px;
+    color: #ffffff;
+    width: 210px;
+    text-align: center;
+    padding-top: 5px;
+}
+.title_category{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.card-product{
+  height: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.header_card{
+  height: 40%;
+}
+.card-body{
+  height: 60%;
+}
+.card-blog .card-body{
+  padding: 25px !important;
+}
+.dis-price{
+  text-decoration: line-through; 
+  display:inline; 
+  color: red;
+}
+.img_bg{
+  background-image: url('/img/home/banner1.jpg');
+  width: 100%;
+  height: 80%;
+}
+.button_hover:hover{
+  background-color: #00a859;
+  color: #fff;
+  border-color: #00a859;
+}
+.card-blog:hover{
+  transform: translate(0, -5px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.img_bgCate{
+  background-image: url('/img/banner.png');
+  z-index: 100000;
+}
+.hover_card_top:hover{
+  transform: translate(0, -5px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,53 @@
+<div class="container">
+  <br>
+  {{#ifCond check false}}
+  <div class="row">
+    <span class="alert alert-danger">Bạn chưa đăng ký khóa học này, vui lòng đăng ký để tiếp tục</span>
+  </div>
+  {{else}}
+  <ul class="breadcrumb">
+    <li><a href="/user/user_course" title="Khóa học của tôi"><i class="fa fa-book"></i></a></li>
+    <li><a href="/study/{{currentCourse.courseID}}-1"> &nbsp; > {{currentCourse.name}} &nbsp;> &nbsp;</a></li>
+    <li>Bài {{lessonDetail.lessonNo}}: {{lessonDetail.name}}</li>
+  </ul>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="inner">
+        <iframe width="750" height="421" src="{{lessonDetail.urlLesson}}" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <br>
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="/study/{{currentCourse.courseID}}-{{prevLesson}}">
+            <i class="fa fa-backward" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="/study/{{currentCourse.courseID}}-{{nextLesson}}">
+            <i class="fa fa-forward" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      <hr class="line">
+    </div>
+    <div class="col-md-4">
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <li class="list-group-item active">Các bài học</li>
+        <ul class="list-group">
+          {{#each Lessons}}
+          {{#ifCond ../currLesson lessonNo}}
+          <a href='/study/{{../currentCourse.courseID}}-{{lessonNo}}'>
+            <li class="list-group-item" style="color: blue">Bài {{lessonNo}}: {{name}}</li>
+          </a>
+          {{else}}
+          <a href='/study/{{../currentCourse.courseID}}-{{lessonNo}}'>
+            <li class="list-group-item" style="color: black">Bài {{lessonNo}}: {{name}}</li>
+          </a>
+          {{/ifCond}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{/ifCond}}
+  </div>

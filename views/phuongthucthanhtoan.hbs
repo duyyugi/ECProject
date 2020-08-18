@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div class="container">
+        <h4 class="text-center">Vui lòng chọn phương thức thanh toán</h4>
+        <br>
+        <br>
+        <div class="content_payment">
+            <div class="row" style="padding: 10px;">
+                <i class="material-icons icon_payment">payment</i> 
+                <a class="style_vnpay" href="/payment/vnpay">
+                    Thanh toán qua VNPay
+                    <img class="img_payment" src="/img/payment/vnpay-banner.png">
+                </a>
+            </div>
+            <div class="row">
+                <form action="/pay" method="post">
+                    <div class="row" style="padding-left: 25px;">
+                        <i class='fab fa-paypal icon_paypal'></i>
+                        <input type="submit" class="gopaypal"  value="Thanh toán qua Paypal Sandbox" >
+                        <img class="img_payment" src="/img/payment/paypal-sandbox.png">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

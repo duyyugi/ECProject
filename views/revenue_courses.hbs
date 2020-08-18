@@ -1,0 +1,92 @@
+<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Quản lý doanh thu khóa học</h1>
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Doanh thu</div>
+    <div class="list-group list-group-flush">
+      <a href="/admin/revenue" class="list-group-item list-group-item-action bg-light" id="chart1">Doanh thu giáo
+        viên</a>
+      <a href="/admin/revenue_courses" class="list-group-item list-group-item-action bg-light" id="chart2">Doanh thu
+        khóa học</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <input type="text" class="form-control" id="search" onkeyup="Search()" placeholder="Tìm kiếm theo tên"
+            title="Type in a name">
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <!--Doanh thu khóa học-->
+      <div class="container">
+
+        <table id="tablecourse" class="table table-hover table_info_cart">
+          <thead>
+            <tr class="row_title">
+              <th style="width: 25%;">Mã khóa học</th>
+              <th style="width: 50%;">Tên khóa học</th>
+              <th style="width: 25%;" class="table_header">Doanh Thu</th>
+
+            </tr>
+          </thead>
+
+          {{#each CourseRev}}
+          <tr>
+            <td>{{ID}}</td>
+            <td>{{NAME}}</td>
+            <td><span class="money" id="{{id}}">{{REVC}}</span> <span>VNĐ</span></td>
+          </tr>
+          {{/each}}
+
+        </table>
+
+        <hr />
+
+        <!--show chart with year -->
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<script>
+  function Search() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tablecourse");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+<script src="/js/simple.money.format.js"></script>
+<script type="text/javascript">
+  $('.money').simpleMoneyFormat();
+</script>

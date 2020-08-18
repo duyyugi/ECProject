@@ -1,0 +1,79 @@
+<!-- ================ start banner area ================= -->
+{{> banner}}
+<!-- ================ end banner area ================= -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<div class="hover">
+						<h4>Bạn muốn học nhưng chưa có tài khoản?</h4>
+						<p>Đăng ký ngay để tham gia vào Website học lập trình trực tuyến hàng đầu Việt Nam</p>
+						<p>Đã có tài khoản?</p>
+						<a class="button button-account" href="/login">Đăng nhập</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="login_form_inner register_form_inner">
+					<h3>Đăng kí tài khoản</h3>
+					<form class="row login_form" action="/user/register" method="POST" id="register_form">
+						{{#if message}}
+						<div class="col-lg-12 alert {{type}}" role="alert">
+							<span>{{message}}</span>
+						</div>
+						{{/if}}
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="username" name="username"
+								placeholder="Tên đăng nhập" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'username'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ Email"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'email'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" id="password" name="password"
+								placeholder="Mật khẩu" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'password'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+								placeholder="Đặt lại mật khẩu" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'confirmPassword'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="name" name="name" placeholder="Họ và tên"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'name'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="phone" name="phone" placeholder="Số điện thoại"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth"
+								placeholder="Ngày sinh" onfocus="(this.type='date')" required>
+						</div>
+						{{#if renderNewRole}}
+						<div class="col-md-12 form-group">
+							<select name="roleID" id="roleID">
+								<option value=1>Học viên</option>
+								<option value=2>Giáo viên</option>
+								<option value=4>Nhân viên tư vấn</option>
+							</select>
+						</div>
+						{{/if}}
+						<div class="col-md-12 form-group">
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="button button-register w-100">Đăng kí</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Login Box Area =================-->

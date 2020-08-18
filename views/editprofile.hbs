@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="tabset">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab1" aria-controls="profile" checked>
+        <label for="tab1"><a href="/user/account">Thông tin cá nhân</a></label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+        <label for="tab2"><a href="/user/user_trans">Thông tin giao dịch</a></label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+        <label for="tab3"><a href="/user/user_course">Khóa học của tôi</a></label>
+        <div class="tab-panels">
+            <section id="profile" class="tab-panel">
+                <form id="profile" action="/user/edit?username={{usernameHref}} " method="POST"
+                    enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <img height="300px" width="300px" src="{{avatar}}">
+                            </div>
+                            <div class="row">
+                                <input type="file" id="avatar" name="avatar">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <fieldset>
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Họ tên:</label>
+                                    <div class="col-sm-4 form-group">
+                                        <input type="text" class="form-control" value="{{name}}" id="name" name="name"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Ngày sinh:</label>
+                                    <div class="col-sm-4 form-group">
+                                        <input type="date" class="form-control" value="{{dateOfBirth}}" id="dateOfBirth"
+                                            name="dateOfBirth" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 control-label form-group">Mô tả:</label>
+                                    <div class="col-sm-4">
+                                        <textarea class="form-control" id="description" name="description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10">
+                                    <hr class="line">
+                                </div>
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Sở thích:</label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            {{#each skill}}
+                                            <div class="col-sm-4">
+                                                <input type="checkbox" id="{{skillName}}" name="prolanguage"
+                                                    value="{{skillID}}" {{#if checked}} checked="checked" {{/if}}>
+                                                <label for="{{skillName}}">{{skillName}}</label>
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" hidden="hidden">
+                                    <label class="col-sm-2 control-label">Danh sách skill</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="allskill" name="allskill">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="col-lg-10">
+                                <hr class="line">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <button class="button button-blog" type="submit" id="submitskill">Lưu thay đổi</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+</div>

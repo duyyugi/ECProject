@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Thêm lession</h1>
+<form class="row form-contact form-review mt-3" action="/teacher/insert_teacher_lession" method="post" id="contactForm"
+    novalidate="novalidate" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="hidden" class="form-control" name="courseID" id="courseID" value={{course_teacher_lession.courseID}}>
+    </div>
+    <div class="container col-md-5">
+        <div class="form-group_quan">
+            <label class="form_lable" for="example-number-input">Tên bài học</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="text" class="form-group_quan" name="name" cols="30" rows="2"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group_quan">
+            <label for="example-number-input" class="form_lable">Bài học số</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input class="form-group_quan" type="number" name="lessonNo" id="example-number-input">
+                </div>
+            </div>
+        </div>
+        <div class="form-group_quan">
+            <label class="form_lable" for="example-number-input">Video bài học</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="text" class="form-group_quan" name="urlLesson" cols="30" rows="2"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form_lable" for="example-date-input" class="col-5 col-form-label">Ảnh bài học</label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="imagePath" name="imagePath"
+                    aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">choose file</label>
+            </div>
+        </div>
+        <!--<div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Ngày tạo</label>
+            <div class="col-10">
+                <input class="form-control" type="date" name="startedAt" id="example-date-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Ngày kết thúc</label>
+            <div class="col-10">
+                <input class="form-control" type="date" name="endedAt" id="example-date-input">
+            </div>
+        </div>-->
+    </div>
+    <div class="container col-md-12  text-right">
+        <button type="submit" value="submit" class="button button--active button-review">Thêm lession</button>
+    </div>
+</form>
+</body>
+</html>

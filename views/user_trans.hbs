@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="tabset">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab1" disabled>
+        <label for="tab1"><a href="/user/account">Thông tin cá nhân</a></label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" disabled checked>
+        <label for="tab2"><a href="/user/user_trans">Thông tin giao dịch</a></label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" disabled>
+        <label for="tab3"><a href="/user/user_course">Khóa học của tôi</a></label>
+        <div class="tab-panels">
+            <h2 class="subscribe__title">Thông tin giao dịch</h2>
+            <section id="profile" class="tab-panel">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Mã hóa đơn</th>
+                            <th scope="col">Số tiền (VND)</th>
+                            <th scope="col">PTTT</th>
+                            <th scope="col">Ngày thanh toán</th>
+                            <th scope="col">Tên khóa học</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each bills}}
+                        <tr>
+                            <td class="counterCell"></td>
+                            <td>{{billID}}</td>
+                            <td class="money">{{Bill_Detail.price}}</td>
+                            <td>{{paymentMethod}}</td>
+                            <td>{{Bill_Detail.dateFormatted}}</td>
+                            <td>{{Bill_Detail.Course.name}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/js/simple.money.format.js"></script>
+<script type="text/javascript">
+    $('.money').simpleMoneyFormat();
+</script>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <!-- ================ category section start ================= -->
+  <section class="blog_area single-post-area py-80px section-margin--small">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="blog_right_sidebar">
+            <aside class="single_sidebar_widget ads_widget">
+            </aside>
+            <aside class="single_sidebar_widget post_category_widget">
+              <h4 class="widget_title">QUẢN LÝ</h4>
+              <ul class="list cat-list">
+                <li>
+                  <a href="/admin" class="d-flex justify-content-between">
+                    <p>Quản lý người dùng</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/revenue" class="d-flex justify-content-between">
+                    <p>Quản lý doanh thu</p>
+                  </a>
+                </li>                
+                <li>
+                  <a href="/user/register" class="d-flex justify-content-between">
+                    <p>Thêm người dùng</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/select_course" class="d-flex justify-content-between">
+                    <p>Quản lý khóa học</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/bill-manager" class="d-flex justify-content-between">
+                    <p>Quản lý đơn hàng</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/statistical" class="d-flex justify-content-between">
+                    <p>Thống kê</p>
+                  </a>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="col-xl-12 col-lg-8 col-md-7">
+            <!-- Start Filter Bar -->
+            <div class="filter-bar d-flex flex-wrap align-items-center">
+              <div class="sorting mr-auto">
+                {{#ifCond banned "notBanned"}}
+                <select id="bannedList" name="banned" onchange="bannedListChange(this)">
+                  <option value="notBanned">Danh sách người dùng</option>
+                  <option value="banned">Danh sách người dùng bị cấm</option>
+                </select>
+                {{/ifCond}}
+                {{#ifCond banned "banned"}}
+                <select id="bannedList" name="banned" onchange="bannedListChange(this)">
+                  <option value="banned">Danh sách người dùng bị cấm</option>
+                  <option value="notBanned">Danh sách người dùng</option>
+                </select>
+                {{/ifCond}}
+              </div>
+              <div>
+                <div class="input-group filter-bar-search">
+                  <input type="text" name="searchUser" id="searchUser" placeholder="Tìm kiếm theo tên">
+                  <button type="submit" onclick="searchUsers()" class="button_submit"><i
+                      class="ti-search button_search ion_search"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <form action="/admin?page=1&banned={{banned}}" method="POST">
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Họ Tên</th>
+                    <th scope="col">Vai trò</th>
+                    <th scope="col">SĐT</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Chọn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each Users}}
+                  <tr>
+                    <td class="counterCell"></td>
+                    <td><a href="/user/account?username={{username}}">{{name}}</a></td>
+                    {{#ifCond roleID 1}}
+                    <td>Học sinh</td>
+                    {{/ifCond}}
+                    {{#ifCond roleID 2}}
+                    <td>Giáo viên</td>
+                    {{/ifCond}}
+                    {{#ifCond roleID 3}}
+                    <td>Admin</td>
+                    {{/ifCond}}
+                    {{#ifCond roleID 4}}
+                    <td>NV Tư Vấn</td>
+                    {{/ifCond}}
+                    <td>{{phone}}</td>
+                    <td>{{email}}</td>
+                    <td style="text-align:center"> <input type="checkbox" id="tableUser" name="tableUser"
+                        class="tableUser" value="{{username}}"></td>
+                  </tr>
+                  {{/each}}
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    {{#ifCond banned "notBanned"}}
+                    <td><button class="button button-blog" type="submit" id="banAll" name="banAll" style="display: none;">Cấm</button></td>
+                    {{/ifCond }}
+                    {{#ifCond banned "banned"}}
+                    <td><button class="button button-blog" type="submit" id="banAll" name="banAll" style="display: none;">Gỡ cấm</button></td>
+                    {{/ifCond }}
+                    <td style="text-align:center"> <input type="checkbox" id="checkAll" name="checkAll"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div hidden="hidden">
+                <input type="text" , id="checkAllBannedUser" name="checkAllBannedUser" value="">
+              </div>
+            </form>
+
+            <nav>
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="?page={{prev_value}}&banned={{banned}}&searchUser={{searchUser}}">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                  </a>
+                </li>
+                {{#each this.page_numbers}}
+                {{#if isCurrentPage}}
+                <li class="page-item active" aria-current="page">
+                  <a class="page-link" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
+                </li>
+                {{else}}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{value}}">{{value}}</a>
+                </li>
+                {{/if}}
+                {{/each}}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{next_value}}&banned={{banned}}&searchUser={{searchUser}}">
+                    <i class="fa fa-forward" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+  </section>
+  <script>
+    function bannedListChange(obj) {
+      let url = '/admin?page=1&banned=' + obj.value;
+      location.href = url;
+    }
+    function searchUsers(obj) {
+      let banned = document.getElementById("bannedList").value;
+      let searchUser = document.getElementById("searchUser").value;
+      let url = '/admin?page=1&banned=' + banned + '&searchUser=' + searchUser;
+      location.href = url;
+    }
+  </script>
+</html>

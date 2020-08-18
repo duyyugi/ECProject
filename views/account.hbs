@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="tabset">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab1" disabled checked>
+        <label for="tab1"><a href="/user/account">Thông tin cá nhân</a></label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" disabled>
+        <label for="tab2"><a href="/user/user_trans">Thông tin giao dịch</a></label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" disabled>
+        <label for="tab3"><a href="/user/user_course">Khóa học của tôi</a></label>
+        <div class="tab-panels">
+            <section id="profile" class="tab-panel">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <img height="300px" width="300px" src="{{avatar}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <legend>Họ tên: {{name}}</legend>
+                                </div>
+                                {{#ifCond banned true}}
+                                <div><b class="alert alert-danger">BỊ CẤM</b></div>
+                                {{/ifCond}}
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Tên đăng nhập:</label>
+                                <div class="col-sm-8">
+                                    <span>{{username}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Email:</label>
+                                <div class="col-sm-8">
+                                    <span>{{email}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Số điện thoại:</label>
+                                <div class="col-sm-8">
+                                    <span>{{phone}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Ngày sinh:</label>
+                                <div class="col-sm-8">
+                                    <span>{{dateOfBirth}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Ngày tham gia:</label>
+                                <div class="col-sm-8">
+                                    <span>{{dateJoin}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Ưa thích:</label>
+                                <div class="col-sm-8">
+                                    {{#each skill}}
+                                    <span>{{this.skillName}}, </span>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-4 control-label">Giới thiệu:</label>
+                                <div class="col-sm-8">
+                                    <p style="white-space: pre-line">{{description}}</p>
+                                </div>
+                            </div>
+                            <div class="row" hidden="hidden">
+                                <label class="col-sm-4 control-label">Hidden</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="username" name="usernane">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr class="line">
+                        {{#if checkEditPrivilege}}
+                        <div class="row">
+                            <div class="col-lg-3">
+                            </div>
+                            <div>
+                                <a class="button button-blog text-white" href="/user/edit?username={{username}}">Chỉnh
+                                    sửa</a>
+                                <a class="button button-blog text-white" href="/user/change_password">Đổi mật khẩu</a>
+                            </div>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </section>
+            <section id="user-trans" class="tab-panel">
+
+            </section>
+        </div>
+    </div>
+</div>

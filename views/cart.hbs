@@ -1,0 +1,137 @@
+{{> banner}}
+<!-- ================ end banner area ================= -->
+
+
+
+<!--================Cart Area =================-->
+{{#with cart}}
+<section class="cart_area" id="cartsection" data-itemlen="{{items.length}}">
+    <div class="container">
+        <div class="cart_inner" id="cart-body">
+            {{#if items.length}}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sản phẩm</th>
+                            <!--th scope="col">Price</th-->
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">Thành tiền (VND)</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each items}}
+                        <tr id="item{{item.courseID}}">
+                            <td>
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img class="thumbnail" src="{{item.imagePath}}" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <p>{{item.name}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <h5 class="money">{{price}}</h5>
+                            </td>
+
+                            <td>
+                                <div>
+                                    <button class="xButton deletebutton text-white"
+                                        onclick="removeCartItem({{item.courseID}})">x</button>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                        <tr>
+                            <td>
+                                <a class="button btn-danger text-white button-blog" onclick="clearCart()">Xóa tất cả</a>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <div id="divVoucherCode">
+                                    <input class="form-control" type="text" id="voucherCode" name="voucherCode"
+                                        placeholder="Mã Voucher">
+                                </div>
+                                <div id="notiVoucher">
+                                </div>
+                            </td>
+                            <td>
+                                <button id="buttonCoupon" class="button button-blog" onclick="applyCoupon()">Áp
+                                    dụng</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <h5>Tổng tiền (VND)</h5>
+                            </td>
+                            <td>
+                                <div id="totalPriceDiv">
+                                    <h5 id="totalPrice" class="money">{{totalPrice}}</h5>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr class="out_button_area">
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                           {{#if ../isLoggedIn}}
+                            <td>
+                                <a class="button button-blog" href="/payment">Mua hàng</a>
+                            </td>
+                            {{else}}
+                            <td>
+                                <a class="button button-blog" onclick="funcLogin()">Mua hàng</a>
+                                <h5 id="loginMua"></h5>
+                            </td>
+                            
+							{{/if}}
+                        </tr>
+                    </tbody>
+                </table>
+                {{else}}
+                <div class="alert alert-info text-center"> Giỏ hàng rỗng </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+{{/with}}
+
+<!--================End Cart Area =================-->
+
+<script src="https://code.jquery.com/jquery-3.5.0.slim.js"></script>
+<script src="/js/simple.money.format.js"></script>
+<script type="text/javascript">
+    $('.money').simpleMoneyFormat();
+</script>
+
+<script>
+function funcLogin() {
+  document.getElementById("loginMua").innerHTML = "Vui lòng đăng nhập để mua hàng";
+}
+</script>

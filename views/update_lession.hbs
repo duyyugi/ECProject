@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Chỉnh sửa lession</h1>
+<form class="row form-contact form-review mt-3" action="/admin/update_lession" method="post" id="contactForm"
+    novalidate="novalidate" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="hidden" class="form-control" name="lessonID" id="lessonID" value={{lessions_update.lessonID}}>
+        <input type="hidden" class="form-control" name="courseID" id="courseID" value={{lessions_update.courseID}}>
+    </div>
+    <div class="container col-md-5">
+        <div class="form-group_quan">
+            <label class="form_lable" for="example-number-input">Tên bài học</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="text" class="form-group_quan" name="name" cols="30" rows="2" value="{{lessions_update.name}}"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group_quan">
+            <label for="example-number-input" class="form_lable">Bài học số</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input class="form-group_quan" type="number" name="lessonNo" id="example-number-input" value="{{lessions_update.lessonNo}}">
+                </div>
+            </div>
+        </div>
+        <div class="form-group_quan">
+            <label class="form_lable" for="example-number-input">Video bài học</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="text" class="form-group_quan" name="urlLesson" cols="30" rows="2" value="{{lessions_update.urlLesson}}"></input>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <label class="form_lable" for="example-date-input" class="col-5 col-form-label">Ảnh bài học</label>
+            </div>
+            <div class="row">
+                <img class="img-thumbnail" height="150px" width="150px" src="{{lessions_update.imagePath}}">
+            </div>
+            <div class="row">
+                <input type="file" id="imagePath" name="imagePath">
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-12  text-right">
+        <button type="submit" value="submit" class="button button--active button-review">Chỉnh sửa lession</button>
+    </div>
+</form>
+</body>
+</html>

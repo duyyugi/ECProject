@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="tabset">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab1" disabled>
+        <label for="tab1"><a href="/user/account">Thông tin cá nhân</a></label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" disabled>
+        <label for="tab2"><a href="/user/user_trans">Thông tin giao dịch</a></label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" disabled checked>
+        <label for="tab3"><a href="/user/user_course">Khóa học của tôi</a></label>
+        <h2 class="subscribe__title">Khóa học của tôi</h2>
+        <hr class="line">
+        <div class="tab-panels">
+            <div class="row">
+                {{#each Courses}}
+                <div class="col-md-4">
+                    <div>
+                        {{>course_user}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

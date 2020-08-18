@@ -1,0 +1,183 @@
+<main class="site-main">
+  <!--================ Hero banner start =================-->
+  <section class="hero-banner" style="padding-bottom: 5%;">
+    <div class="container">
+      <div class="row no-gutters align-items-center pt-60px">
+        <div class="col-5 d-none d-sm-block">
+          <div class="hero-banner__img">
+            <img class="img-fluid" style="height: 100%;" src="img/home/banner.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+          <div class="hero-banner__content">
+            <h4>Trang web giáo dục</h4>
+            <h1>LẬP TRÌNH VIÊN CHUYÊN NGHIỆP</h1>
+            <p>Aroma sẽ giúp bạn chắp cánh theo đuổi niềm đam mê lập trình của chính bạn. Nơi giúp bạn trở thành những lập trình viên chuyên nghiệp với mức lương lên đến hàng ngàn đô la.</p>
+            <a class="button button-hero button_hover" href="category?limit=9">Bắt đầu ngay</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ Hero banner start =================-->
+
+  <!--================ Hero Carousel start =================-->
+  <section class="section-margin mt-0">
+    <div class="section-intro pb-60px title_category">
+        <h2>Lựa chọn <span class="section-intro__style">Lĩnh vực</span></h2>
+      </div>
+    <div class="owl-carousel owl-theme hero-carousel">
+      {{#each categories}}
+      <div class="hero-carousel__slide">
+        <img class="card-img font_img" src="{{imagePath}}" alt="" class="img-fluid">
+        <a id="category{{categoryID}}" name="brand" onclick="selectParam('category', {{categoryID}} , true)" href="#"
+          class="hero-carousel__slideOverlay">
+          <h3>{{name}}</h3>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  <!--================ Hero Carousel end =================-->
+
+  <!-- ================ trending product section start ================= -->
+  <section class="section-margin calc-60px">
+  
+    <div class="container">
+      <div class="section-intro pb-60px">
+        <h2>Khóa học <span class="section-intro__style">Đề xuất</span></h2>
+      </div>
+      {{#each demos}}
+        {{id}}
+    {{/each}}
+      <div class="row">
+        {{#each courseOffereds}}
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card text-center card-product">
+            {{>course}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+  <!-- ================ trending product section end ================= -->
+
+
+  <!-- ================ offer section start ================= -->
+  <section class="img_bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5">
+          <div class="offer__content text-center">
+            <h3 style="color: #fff;">Học phí ưu đãi đến 50%</h3>
+            <h4 style="color: #fff;">Học bổng toàn phần</h4>
+            <p style="color: #fff;">Giành cho những học viên có hoàn cảnh khó khăn.</p>
+            <a class="button button--active mt-3 mt-xl-4 button_hover" href="category?limit=9">Tìm hiểu khóa học</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><br><br>
+  <!-- ================ offer section end ================= -->
+
+  
+
+  <!-- ================ Blog section start ================= -->
+  <section class="blog">
+    <div class="container">
+      <div class="section-intro pb-60px">
+        <p>Aroma luôn tiếp nhận những đóng góp của học viên</p>
+        <h2>Phản hồi <span class="section-intro__style">Học viên</span></h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="card card-blog" style="height: 90%;">
+            <div class="card-blog__img" style="height: 50% ">
+              <img  style="width: 100%;height:100%;" src="/img/users/avatars/avatar2.jpg" alt="">
+            </div>
+            <div class="card-body" style="height: 50%;">
+              <ul class="card-blog__info">
+                <li><a href="#">By Đức</a></li>
+                <li><a href="#"><i class="ti-comments-smiley"></i> 2 Bình luận</a></li>
+              </ul>   
+              <p>Khóa học Java quá tuyệt vời, nó đã giúp tôi nắm được rất vững kiến thức nền tảng, xây dựng được nhiều projects từ dễ đến khó</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="card card-blog" style="height: 90%;">
+            <div class="card-blog__img" style="height: 50%;">
+              <img class="card-img rounded-0" style="width: 100%; height:100%;" src="/img/users/avatars/avatar3.jpg" alt="">
+            </div>
+            <div class="card-body" style="height: 50%;">
+              <ul class="card-blog__info">
+                <li><a href="#">By Trần</a></li>
+                <li><a href="#"><i class="ti-comments-smiley"></i> 2 Bình luận</a></li>
+              </ul>
+              <p>Khóa học Nodejs rất chi tiết và bài bản. Tôi đã không phí thời gian và tiết bạc để học online tại đây.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="card card-blog" style="height: 90%;">
+            <div class="card-blog__img" style="height: 50%;">
+              <img class="card-img rounded-0"  style="width: 100%;height: 100%;" src="/img/users/avatars/avatar4.jpg" alt="">
+            </div>
+            <div class="card-body" style="height: 50%;">
+              <ul class="card-blog__info">
+                <li><a href="#">By tĩnh</a></li>
+                <li><a href="#"><i class="ti-comments-smiley"></i> 2 Bình luận</a></li>
+              </ul>      
+              <p>Chất lượng quá tuyệt vời, thầy dạy rất bài bản và chuyên nghiệp. Tôi đã tiếp thu được rất nhiều từ khóa học. Tôi nghĩ các bạn cũng nên thử.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ Blog section end ================= -->
+
+  <!-- ================ Subscribe section start ================= -->
+  <section class="subscribe-position">
+    <div class="container">
+      <div class="subscribe text-center">
+        <h3 class="subscribe__title">BẠN MUỐN NHẬN TƯ VẤN HOẶC THÔNG TIN CHI TIẾT</h3>
+        <p>Bạn hãy để lại địa chỉ email chúng tôi sẽ tự động liên hệ để tư vấn và thông tin đến bạn.</p>
+        <!-- Begin Mailchimp Signup Form -->
+        <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+          #mc_embed_signup {
+            background: #fff;
+            clear: left;
+            font: 14px Helvetica, Arial, sans-serif;
+            width: 100%;
+          }
+        </style>
+        <div id="mc_embed_signup">
+          <form target="_blank"
+            action="https://herokuapp.us17.list-manage.com/subscribe/post?u=1dc4a41243ff81254c8c2e00f&amp;id=48f5d04afe"
+            method="get" class="subscribe-form form-inline mt-5 pt-1">
+            <div class="form-group ml-sm-auto">
+              <input class="form-control mb-1" type="email" name="EMAIL" placeholder="Enter your email"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
+              <div class="info"></div>
+            </div>
+            <button class="btn btn-primary mr-auto mb-1" type="submit">Subscribe Now</button>
+            <div style="position: absolute; left: -5000px;">
+              <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+            </div>
+        
+          </form>
+        </div>
+        
+        <!--End mc_embed_signup-->
+
+      </div>
+    </div>
+  </section>
+  <!-- ================ Subscribe section end ================= -->
+</main>

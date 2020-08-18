@@ -1,0 +1,234 @@
+<!--<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">{{title}}</h1>
+<form class="row form-contact form-review mt-3" action="/admin/update_course" method="post" id="contactForm"
+    novalidate="novalidate" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="hidden" class="form-control" name="courseID" id="courseID" value={{courses.courseID}}>
+    </div>
+    <div class="container col-md-5">
+        <div class="form-group row">
+            <input type="text" class="form-control different-control w-100" name="name" cols="30" rows="2"
+                placeholder="Tên khóa học" value="{{courses.name}}"></input>
+        </div>
+        <div class="form-group row">
+            <input type="text" class="form-control different-control w-100" name="description" cols="30" rows="2"
+                placeholder="Mô tả" value="{{courses.description}}"></input>
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">Giá tiền</label>
+            <div class="col-10">
+                <input class="form-control" type="number" name="price" id="example-number-input"
+                    value="{{courses.price}}">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <img height="150px" width="150px" src="{{courses.imagePath}}">
+            </div>
+            <div class="row">
+                <input type="file" id="imagePath" name="imagePath">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">Số Video</label>
+            <div class="col-10">
+                <input class="form-control" type="number" name="NoVideos" id="example-number-input"
+                    value="{{courses.NoVideos}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">Giảm giá</label>
+            <div class="col-10">
+                <input class="form-control" type="number" name="priceDis" id="example-number-input"
+                    value="{{courses.priceDis}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Ngày bắt đầu</label>
+            <div class="col-10">
+                <input class="form-control" type="date" name="startedAt" id="example-date-input" value="{{startedAt}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Ngày kết thúc</label>
+            <div class="col-10">
+                <input class="form-control" type="date" name="endedAt" id="example-date-input" value="{{endedAt}}">
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">ObjectID</label>
+            </div>
+            <select class="custom-select" type="number" name="objectId" id="inputGroupSelect01">
+                <option value={{courses.objectId}}>{{objects.name}}</option>
+                {{#each Objects_update}}
+                <option value={{id}}>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Loại khóa học</label>
+            </div>
+            <select class="custom-select" type="number" name="categoryID" id="inputGroupSelect01">
+                <option value="{{courses.categoryID}}">{{categories.name}}</option>
+                {{#each Categories_update}}
+                <option value={{categoryID}}>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Giảng viên</label>
+            </div>
+            <select class="custom-select" type="number" name="userID" id="inputGroupSelect01">
+                <option value="{{courses.userID}}">{{users.username}}</option>
+                {{#each Users_update}}
+                <option value={{userID}}>{{username}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Chuyên môn giảng viên</label>
+            </div>
+            <select class="custom-select" type="number" name="skillID" id="inputGroupSelect01">
+                <option value="{{courses.skillID}}">{{skills.skillName}}</option>
+                {{#each Skills_update}}
+                <option value={{skillID}}>{{skillName}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">Số lượng học viên</label>
+            <div class="col-10">
+                <input class="form-control" type="number" name="NumberStudent" id="example-number-input"
+                    value="{{courses.NumberStudent}}">
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-12  text-right">
+        <button type="submit" value="submit" class="button button--active button-review">{{nameButton}}</button>
+    </div>
+</form>-->
+<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Chỉnh Sửa Khóa Học</h1>
+<form class="row form-contact form-review mt-3" action="/admin/update_course" method="post" id="contactForm"
+    novalidate="novalidate" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="hidden" class="form-control" name="courseID" id="courseID" value={{courses.courseID}}>
+    </div>
+    <div class="container col-md-5">
+        <div class="form-group_quan">
+            <label class="form_lable" for="example-number-input" class="col-3 col-form-label">Tên khóa học</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="text" class="form-group_quan" name="name" cols="30" rows="2"
+                        value="{{courses.name}}"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group_quan">
+            <label class="form_lable" for="example-number-input" class="col-2 col-form-label">Mô Tả</label>
+            <div class="row">
+                <div class="form-group col">
+                    <input type="text" class="form-group_quan" name="description" cols="30" rows="2"
+                        value="{{courses.description}}"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form_lable" for="example-number-input">Giá tiền</label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form_lable" for="example-number-input">Số Video</label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form_lable" for="example-number-input">Giảm giá</label>
+                </div>
+            </div>
+            <div class="row form-group_quan">
+                <div class="col-sm-4">
+                    <input class="form-group" type="number" name="price" id="example-number-input"
+                        value="{{courses.price}}">
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-group" type="number" name="NoVideos" id="example-number-input"
+                        value="{{courses.NoVideos}}">
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-group" type="number" name="priceDis" id="example-number-input"
+                        value="{{courses.priceDis}}">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form_lable" for="example-number-input">Số lượng học viên</label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form_lable" for="example-date-input">Ngày bắt đầu</label>
+                </div>
+                <div class="col-md-4">
+                    <label class="form_lable" for="example-date-input">Ngày kết thúc</label>
+                </div>
+            </div>
+            <div class="row form-group_quan">
+                <div class="col-sm-4">
+                    <input class="form-group" type="number" name="NumberStudent" id="example-number-input"
+                        value="{{courses.NumberStudent}}">
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-group" type="date" name="startedAt" id="example-date-input"
+                        value="{{startedAt}}">
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-group" type="date" name="endedAt" id="example-date-input" value="{{endedAt}}">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form_lable" for="example-date-input" class="col-2 col-form-label">Trình độ</label>
+            <select class="form-group_select" type="number" name="objectId" id="inputGroupSelect01">
+                <option value={{courses.objectId}}>{{objects.name}}</option>
+                {{#each Objects_update}}
+                <option value={{id}}>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form_lable" for="example-date-input" class="col-3 col-form-label">Loại khóa học</label>
+            <select class="form-group_select" type="number" name="categoryID" id="inputGroupSelect01">
+                <option value="{{courses.categoryID}}">{{categories.name}}</option>
+                {{#each Categories_update}}
+                <option value={{categoryID}}>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form_lable" for="example-date-input" class="col-5 col-form-label">Chuyên môn giảng
+                viên</label>
+            <select class="form-group_select" type="number" name="skillID" id="inputGroupSelect01">
+                <option value="{{courses.skillID}}">{{skills.skillName}}</option>
+                {{#each Skills_update}}
+                <option value={{skillID}}>{{skillName}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <label class="form_lable" for="example-date-input" class="col-5 col-form-label">Ảnh khóa học</label>
+            </div>
+            <div class="row">
+                <img class="img-thumbnail" height="150px" width="150px" src="{{courses.imagePath}}">
+            </div>
+            <div class="row">
+                <input type="file" id="imagePath" name="imagePath">
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-12  text-right">
+        <button type="submit" value="submit" class="button button--active button-review">Chỉnh Sửa khóa học</button>
+    </div>
+</form><br>

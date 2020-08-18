@@ -1,0 +1,196 @@
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="blog">
+    <div class="container h-100">
+      <div class="blog-banner">
+        <div class="text-center">
+          <img class="img_banner" style="width: 100%;" src="/img/bn.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- ================ end banner area ================= -->
+
+
+	<!-- ================ category section start ================= -->		  
+<section class="section-margin--small mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+          <div class="sidebar-categories">
+            <div class="head">Khóa Học</div>
+            <ul class="main-categories">
+              <li class="common-filter">
+                <form action="#">
+                  <ul>
+                    {{#each categories}}
+                      <li class="filter-list" onclick="selectParam('category', {{categoryID}}, true)">
+                        <input class="pixel-radio" type="radio" id="category{{categoryID}}" >
+                        <label for="category{{categoryID}}" >{{name}}
+                          <span>({{Courses.length}})</span>
+                        </label>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-filter">
+            <div class="top-filter-head">Lọc Khóa Học</div>
+            <div class="common-filter">
+              <div class="head">Đối Tượng Học Viên</div>
+              <form action="#">
+                <ul>
+                  {{#each objects}}
+                    <li class="filter-list">
+                      <input class="pixel-radio" type="radio" id="object{{id}}"
+                      name="object" onclick="selectParam('object', {{id}})">
+                      <label for="object{{id}}">{{name}}
+                        <span>({{Courses.length}})</span>
+                      </label>
+                    </li>
+                  {{/each}}
+                </ul>
+              </form>
+            </div>
+            <div class="common-filter">
+              <div class="head">Giảng Viên</div>
+              <form action="#">
+                <ul>
+                  {{#each userTeachers}}
+                  <li class="filter-list"><input class="pixel-radio" type="radio" 
+                  id="user{{userID}}" name="user" onclick="selectParam('user', {{userID}})">
+                  <label for="user{{userID}}" class="name_teacher">{{name}}<span>({{Courses.length}})</span></label>
+                  <label class="des_teacher">{{description}}</label>
+                  <br>
+                  </li>
+                  {{/each}}
+                </ul>
+              </form>
+            </div>
+            <div class="common-filter">
+              <div class="head">GIÁ</div>
+              <div class="price-range-area">
+                <div id="price-range"></div>
+                <div class="value-wrapper d-flex">
+                  <div class="price">Giá:</div>
+                  <span>đ</span>
+                  <div id="lower-value"></div>
+                  <div class="to">-</div>
+                  <span>đ</span>
+                  <div id="upper-value"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-8 col-md-7">
+          <!-- Start Filter Bar -->
+          <div class="filter-bar d-flex flex-wrap align-items-center">
+            <div class="sorting">
+              <select id="sort" onchange="selectParam('sort', this.value)">
+                <option value="name">Sắp xếp theo tên (A->Z)</option>
+                <option value="price_reduction">Sắp xếp theo giá giảm dần</option>
+                <option value="price_increase">Sắp xếp theo giá tăng dần</option>
+              </select>
+            </div>
+            <div class="sorting mr-auto">
+              <select id="limit" onchange="selectParam('limit', this.value)">
+                <option value="9">Hiển 9 sản phẩm</option>
+                <option value="18">Hiển thị tất cả</option>
+              </select>
+            </div>
+            <div>
+              <div class="input-group filter-bar-search">
+                <form action="/category" method="GET">
+                      <input type="text" name="search" placeholder="Tìm kiếm">
+                      <button type="submit" class="button_submit"><i class="ti-search button_search ion_search"></i></button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- End Filter Bar -->
+          <!-- Start Best Seller -->
+          <section class="lattest-product-area pb-40 category-list">
+            <div class="row">
+              {{#each courses}}
+              <div class="col-md-6 col-lg-4" class="list_course">
+                {{>course}}
+              </div>
+              {{/each}}
+            </div>
+              <div class="row justify-content-center">
+              <nav aria-label="Page navigation example" id="pagination">
+                {{{ createPagination pagination paginationClass="pagination"}}}
+              </nav>
+            </div>
+          </section>
+          <!-- End Best Seller -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- ================ top product area start ================= -->
+<section class="related-product-area">
+		<div class="container">
+			<div class="section-intro pb-60px">
+        <p>Khóa học phổ biến nhất hiện nay</p>
+        <h2>Khóa học<span class="section-intro__style"> Phổ biến</span></h2>
+      </div>
+			<div class="row mt-30">
+         {{#each topCourses}}
+        <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
+          <div class="single-search-product-wrapper hover_card_top" style="height: 200px;margin-bottom: 20px;">
+            <div class="single-search-product d-flex">
+              <div class="row" style="width: 100%;">
+                 <a href="#"><img src="{{imagePath}}" alt=""></a>
+              </div>
+              <div class="row" style="width: 100%;">
+                <div class="desc">
+                  <a href="#" class="title">{{name}}</a>
+                  <div class="price">{{price}}</div>
+              </div> 
+              </div> 
+          </div>
+        </div>
+      </div>
+       {{/each}}
+		</div>
+	</section>
+
+  <br /> <br/>
+
+<!-- ================ top product area end ================= -->
+
+<!-- ================ Subscribe section start ================= -->
+{{!-- <section class="subscribe-position">
+  <div class="container">
+    <div class="subscribe text-center">
+      <h3 class="subscribe__title">Get Update From Anywhere</h3>
+      <p>Bearing Void gathering light light his eavening unto dont afraid</p>
+      <div id="mc_embed_signup">
+        <form target="_blank"
+          action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+          method="get" class="subscribe-form form-inline mt-5 pt-1">
+          <div class="form-group ml-sm-auto">
+            <input class="form-control mb-1" type="email" name="EMAIL" placeholder="Enter your email"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
+            <div class="info"></div>
+          </div>
+          <button class="button button-subscribe mr-auto mb-1" type="submit">Subscribe Now</button>
+          <div style="position: absolute; left: -5000px;">
+            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section> --}}
+<!-- ================ Subscribe section end ================= -->
+
+
+<!--================ Start footer Area  =================-->

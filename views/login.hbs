@@ -1,0 +1,47 @@
+<!-- ================ start banner area ================= -->
+{{> banner}}
+<!-- ================ end banner area ================= -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section-margin">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<div class="hover">
+						<h4>Bạn vừa mới đến?</h4>
+						<p>Tạo tài khoản ngay để tham gia vào Website học lập trình trực tuyến hàng đầu Việt Nam</p>
+						<a class="button button-account" href="/user/register">Tạo tài khoản</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="login_form_inner">
+					<h3>Đăng nhập</h3>
+					<form class="row login_form" action="/user/login" method="POST" id="contactForm">
+						{{#if message}}
+						<div class="col-lg-12 alert {{type}}" role="alert">
+							<span>{{message}}</span>
+						</div>
+						{{/if}}
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="username" name="username"
+								placeholder="Tên đăng nhập" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'username'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="password" class="form-control" id="password" name="password"
+								placeholder="Mật khẩu" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'password'" required>
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="button button-login w-100">Đăng nhập</button>
+							<a href="/user/forget-password">Quên mật khẩu?</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Login Box Area =================-->

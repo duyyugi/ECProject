@@ -1,0 +1,85 @@
+<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Quản lý đơn hàng</h1> 
+<div class="d-flex" id="wrapper">
+    
+    
+
+    {{>nav_admin}}
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <input type="date" class="form-control" id="date" min="2000-04-01" max="2020-09-30">
+              
+              &nbsp;
+              <button  class="btn btn-primary" type="submit" onclick="searchBill()">Tìm</button>              
+          </ul>
+        </div>
+      </nav>
+      
+      
+      <div class="container-fluid">
+        <!--Doanh thu giáo viên-->
+        <div  class="container">
+          
+          <table id="billtbl" class="table table-hover table_info_cart">
+              <thead>
+                <tr class="row_title">
+                  <th style="width: 25%;">Mã đơn hàng</th>
+                  <th style="width: 20%;">Tổng tiền</th>  
+                  <th style="width: 25%;">Hình thức thanh toán</th>
+                  <th style="width: 30%;">Ngày lập</th>
+                  <th style="width: 10%;">VoucherID</th>
+                  
+                </tr>
+              </thead>
+
+                {{#each Bill}}
+                  <tr>                    
+                    <td >{{billID}}</td>
+                    <td ><span id="{{id}}">{{revenue}}</span> <span>VNĐ</span></td>
+                    <td >{{paymentMethod}}</td>
+                    <td >{{time}}</td>
+                    <td >{{voucherID}}</td>
+                  </tr>
+                {{/each}}
+
+          </table>
+          <hr />
+          
+         
+          
+         
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>
+
+<script>
+  function searchBill() {
+  var input, table, tr, td, i, txtValue, filter;
+  input = document.getElementById("date");
+  filter=input.value;
+  table = document.getElementById("billtbl");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;      
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
